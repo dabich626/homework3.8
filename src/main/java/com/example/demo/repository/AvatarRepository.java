@@ -7,5 +7,4 @@ import ru.hogwarts.school.model.Avatar;
 public interface AvatarRepository extends JpaRepository‹Avatar, Long› {
 
         Optional‹Avatar› findByStudentId(Long studentId);
-
-        }
+}

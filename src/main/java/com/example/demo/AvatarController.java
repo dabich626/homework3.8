@@ -12,4 +12,4 @@ public class AvatarController {
 
         return service.find(page, pageSize);
     }
-}
+ }
