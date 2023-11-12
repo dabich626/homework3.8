@@ -26,3 +26,9 @@ select *
 from student
 ORDER BY age;
 
+select *
+from databasechangelog;
+
+select *
+from databasechangeloglock;
+
