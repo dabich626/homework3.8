@@ -2,12 +2,16 @@ package com.example.demo;
 
 import java.util.Collection;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import repository.FacultyRepository;
 import repository.StudentRepository;
 
 @Service
 public class StudentService {
+
+    private final static Logger logger = LoggerFactory.getLogger(StudentService.class);
 
     @Value("${avatars.dir.path}")
     private String avatarsDir;
@@ -28,14 +32,20 @@ public class StudentService {
     private final StudentRepository repository;
 
     public StudentRepository addStudent(Student student) {
+        logger.info("add method was invoked ");
+
         Student saved = repository.save(student);
     }
 
     public Student findStudent(int age) {
+        logger.info("add method was invoked ");
+
         return repository.findByAge(age).orElse(null);
     }
 
     public Student editStudent(Student student) {
+
+        logger.info("add method was invoked ");
 
         repository.findByAge(student.getAge())
                 .map(
@@ -51,11 +61,15 @@ public class StudentService {
     }
 
     public void  deleteStudent(int age) {
+        logger.info("add method was invoked ");
+
         return repository.deleteByAge(age).orElse(null);
     }
 
 
     public Collection‹Student› findByAge(int age) {
+        logger.info("add method was invoked " + age);
+
         return repository.findByAge(age);
     }
 
@@ -65,6 +79,8 @@ public class StudentService {
     }
 
     public Avatar findAvatar(long studentId) {
+        logger.info("add method was invoked " + studentId);
+
         return aRepository.findByStudentId(studentId).orElseThrow();
     }
 
