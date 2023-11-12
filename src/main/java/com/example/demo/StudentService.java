@@ -26,6 +26,7 @@ public class StudentService {
 
 
     public StudentService(StudentRepository repository) {
+
         this.repository = repository;
     }
 
@@ -68,23 +69,27 @@ public class StudentService {
 
 
     public Collection‹Student› findByAge(int age) {
-        logger.info("add method was invoked " + age);
+        logger.info("add method was invoked ");
 
         return repository.findByAge(age);
     }
 
     public Collection<Student> filteredByAgeBetween(int min, int max){
 
+        logger.info("add method was invoked ");
+
         return repository.findAllByAgeBetween(min, max);
     }
 
     public Avatar findAvatar(long studentId) {
-        logger.info("add method was invoked " + studentId);
+        logger.info("add method was invoked ");
 
         return aRepository.findByStudentId(studentId).orElseThrow();
     }
 
     public void uploadAvatar(Long studentId, MultipartFile file) throws IOException {
+
+        logger.info("add method was invoked ");
         Student student = findStudent(studentId);
 
         Path filePath = Path.of(avatarsDir, studentId + "." + getExtension(file.getOriginalFilename()));
@@ -110,20 +115,25 @@ public class StudentService {
     }
 
     private String getExtension(String fileName) {
+        logger.info("add method was invoked ");
+
         return fileName.substring(fileName.lastIndexOf(".") + 1);
     }
 
     public long studentsCount(){
+        logger.info("add method was invoked ");
 
         return studentRepository.getStudentsCount();
     }
 
     public double averageAge(){
+        logger.info("add method was invoked ");
 
         return  studentRepository.getAverageAge();
     }
 
     Collection<Student> lastFiveStudents(){
+        logger.info("add method was invoked ");
 
         return studentRepository.getLastFiveStudents();
     }
